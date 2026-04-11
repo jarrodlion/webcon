@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversion Test Page</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 350px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Conversion Test Form</h2>
+
+    <!-- LEAD FORM -->
+    <form id="leadForm">
+        <!-- Postal / Zip Code (Indian PIN codes are typically 6 digits) -->
+        <input type="text" id="zipcode" placeholder="Postal / Zip Code" pattern="[0-9]{6}" title="Please enter a valid 6-digit postal code" required>
+        
+        <!-- Indian Phone Number Validation (10 digits, starting with 6, 7, 8, or 9) -->
+        <input type="tel" id="phone" placeholder="Phone Number (e.g. 9876543210)" pattern="^[6-9]\d{9}$" title="Please enter a valid 10-digit Indian phone number" required>
+        
+        <!-- Email -->
+        <input type="email" id="email" placeholder="Email Address" required>
+        
+        <button type="submit" id="formSubmitBtn">Submit</button>
+    </form>
+</div>
+
+<script>
+    // FORM SUBMIT → REDIRECT
+    document.getElementById('leadForm').addEventListener('submit', function(e) {
+        // Prevent the default form submission refresh
+        e.preventDefault(); 
+        
+        console.log("Form Submitted Successfully");
+        
+        // Redirect to the Thank You page to trigger conversion
+        window.location.href = "thankyou.html";
+    });
+</script>
+
+</body>
+</html>
